@@ -339,7 +339,7 @@ export default function ImageBoard() {
   const [sortBy, setSortBy] = useState("created_at")
   const loader = useRef<HTMLDivElement | null>(null)
 
-  const PAGE_SIZE = 12
+  // const PAGE_SIZE = 12
 
   useEffect(() => {
     loadImages()
