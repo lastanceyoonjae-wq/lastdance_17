@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Calendar } from "@/components/ui/calendar"
 import { Button } from "@/components/ui/button"
 import { createClient } from "@/lib/supabase/client"
+export const dynamic = "force-dynamic"
 
 export default function AttendancePage() {
 
