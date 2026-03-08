@@ -231,6 +231,7 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { createClient } from "@/lib/supabase/client"
+export const dynamic = "force-dynamic"
 
 export default function Board3() {
 

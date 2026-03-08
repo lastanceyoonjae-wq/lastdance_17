@@ -6,6 +6,7 @@ import Masonry from "react-masonry-css"
 import { useParams } from "next/navigation"
 import { createClient } from "@/lib/supabase/client"
 import MediaItem from "@/components/MediaItem"
+export const dynamic = "force-dynamic"
 
 export default function TagPage() {
 

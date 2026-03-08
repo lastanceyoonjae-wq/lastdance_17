@@ -324,6 +324,7 @@ import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { X } from "lucide-react"
 import MediaItem from "@/components/MediaItem"
+export const dynamic = "force-dynamic"
 
 export default function ImageBoard() {
 

@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/client"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+export const dynamic = "force-dynamic"
 
 export default function BoardPage() {
     const supabase = createClient()
