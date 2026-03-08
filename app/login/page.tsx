@@ -7,15 +7,15 @@ import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
 
 export default function LoginPage() {
-  // const supabase = createClient()
+  const supabase = createClient()
 
-  const [supabase, setSupabase] = useState<any>(null)
+  // const [supabase, setSupabase] = useState<any>(null)
 
-  useEffect(() => {
-    setSupabase(createClient())
-  }, [])
+  // useEffect(() => {
+  //   setSupabase(createClient())
+  // }, [])
 
-  if (!supabase) return null
+  // if (!supabase) return null
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

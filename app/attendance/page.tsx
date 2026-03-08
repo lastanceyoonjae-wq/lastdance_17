@@ -6,24 +6,24 @@ import { Button } from "@/components/ui/button"
 import { createClient } from "@/lib/supabase/client"
 export const dynamic = "force-dynamic"
 
-// export default function AttendancePage() {
-
-//     const supabase = createClient()
-
-//     const [date, setDate] = useState<Date | undefined>()
-//     const [count, setCount] = useState(0)
-
-
 export default function AttendancePage() {
 
-    const [supabase, setSupabase] = useState<any>(null)
+    const supabase = createClient()
 
-    useEffect(() => {
-        const client = createClient()
-        setSupabase(client)
-    }, [])
+    const [date, setDate] = useState<Date | undefined>()
+    const [count, setCount] = useState(0)
 
-    if (!supabase) return null
+
+// export default function AttendancePage() {
+
+//     const [supabase, setSupabase] = useState<any>(null)
+
+//     useEffect(() => {
+//         const client = createClient()
+//         setSupabase(client)
+//     }, [])
+
+//     if (!supabase) return null
 
 
     
