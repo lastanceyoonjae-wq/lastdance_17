@@ -8,8 +8,16 @@ import { Card } from "@/components/ui/card"
 export const dynamic = "force-dynamic"
 
 export default function BoardPage() {
-    const supabase = createClient()
+    // const supabase = createClient()
 
+    const [supabase, setSupabase] = useState<any>(null)
+
+    useEffect(() => {
+        setSupabase(createClient())
+    }, [])
+
+    if (!supabase) return null
+    
     const [posts, setPosts] = useState<any[]>([])
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")

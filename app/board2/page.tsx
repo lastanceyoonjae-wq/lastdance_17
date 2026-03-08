@@ -328,8 +328,17 @@ export const dynamic = "force-dynamic"
 
 export default function ImageBoard() {
 
-  const supabase = createClient()
+  // const supabase = createClient()
 
+  const [supabase, setSupabase] = useState<any>(null)
+
+  useEffect(() => {
+    setSupabase(createClient())
+  }, [])
+
+  if (!supabase) return null
+
+  
   const [images, setImages] = useState<any[]>([])
   const [tags, setTags] = useState<any>({})
   const [openTag, setOpenTag] = useState<string | null>(null)
@@ -342,9 +351,9 @@ export default function ImageBoard() {
 
   // const PAGE_SIZE = 12
 
-  useEffect(() => {
-    loadImages()
-  }, [])
+  // useEffect(() => {
+  //   loadImages()
+  // }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {

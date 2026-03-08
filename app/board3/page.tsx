@@ -235,7 +235,16 @@ export const dynamic = "force-dynamic"
 
 export default function Board3() {
 
-    const supabase = createClient()
+    // const supabase = createClient()
+
+
+    const [supabase, setSupabase] = useState<any>(null)
+
+    useEffect(() => {
+        setSupabase(createClient())
+    }, [])
+
+    if (!supabase) return null
 
     const [albums, setAlbums] = useState([])
 

@@ -10,8 +10,17 @@ export const dynamic = "force-dynamic"
 
 export default function TagPage() {
 
-    const supabase = createClient()
+    // const supabase = createClient()
 
+
+    const [supabase, setSupabase] = useState<any>(null)
+
+    useEffect(() => {
+        setSupabase(createClient())
+    }, [])
+
+    if (!supabase) return null
+    
     const params = useParams()
     const tag = decodeURIComponent(params.tag as string)
     const [images, setImages] = useState<any[]>([])

@@ -1,13 +1,21 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
 
 export default function LoginPage() {
-  const supabase = createClient()
+  // const supabase = createClient()
+
+  const [supabase, setSupabase] = useState<any>(null)
+
+  useEffect(() => {
+    setSupabase(createClient())
+  }, [])
+
+  if (!supabase) return null
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
