@@ -22,13 +22,13 @@ export default function TagPage() {
     // if (!supabase) return null
 
     const params = useParams()
-    const tag = decodeURIComponent(params.tag as string)
+    const tag = decodeURIComponent((params.tag as string) || "")
     const [images, setImages] = useState<any[]>([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         loadImages()
-    }, [])
+    }, [tag])
 
     const loadImages = async () => {
 
@@ -38,14 +38,24 @@ export default function TagPage() {
             .eq("tag_text", tag)
             .single()
 
-        if (!tagRow) return
+        if (!tagRow) {
+            setImages([])
+            setLoading(false)
+            return
+        }
 
         const { data: imageTags } = await supabase
             .from("image_tags")
             .select("image_id")
             .eq("tag_id", tagRow.id)
 
-        const ids = imageTags.map(i => i.image_id)
+        const ids = (imageTags || []).map(i => i.image_id)
+
+        if (ids.length === 0) {
+            setImages([])
+            setLoading(false)
+            return
+        }
 
         const { data: imgs } = await supabase
             .from("images")
@@ -53,8 +63,8 @@ export default function TagPage() {
             .in("id", ids)
             .order("created_at", { ascending: false })
 
-        setImages(imgs)
-
+        setImages(imgs || [])
+        setLoading(false)
     }
     // const loadImages = async () => {
 
