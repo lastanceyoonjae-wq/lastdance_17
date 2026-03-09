@@ -279,7 +279,7 @@ export default function Board3() {
                 Tag Albums
             </h1>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {/* <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
 
                 {albums.map((album: any) => (
 
@@ -296,6 +296,44 @@ export default function Board3() {
                             />
 
                             <div className="absolute bottom-2 left-2 bg-black/70 text-white text-sm px-2 py-1 rounded">
+
+                                #{album.tag_text} ({album.image_count})
+
+                            </div>
+
+                        </div>
+
+                    </Link>
+
+                ))}
+
+            </div> */}
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2">
+
+                {albums.map((album: any) => (
+
+                    <Link key={album.tag_id} href={`/board3/${album.tag_text}`}>
+
+                        {/* <div className="relative aspect-square overflow-hidden rounded"> */}
+
+                        <div className="relative aspect-square overflow-hidden rounded group">
+
+                            {/* <Image
+                                src={album.cover_image}
+                                alt=""
+                                fill
+                                className="object-cover"
+                            /> */}
+
+                            <Image
+                                src={album.cover_image}
+                                alt=""
+                                fill
+                                className="object-cover group-hover:scale-110 transition"
+                            />
+
+                            <div className="absolute bottom-1 left-1 bg-black/70 text-white text-xs px-1.5 py-0.5 rounded">
 
                                 #{album.tag_text} ({album.image_count})
 
