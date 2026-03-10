@@ -259,6 +259,15 @@ export default function Board3() {
         //     .select("*")
 
         // setAlbums(data || [])
+
+        // const { data } = await supabase
+        //     .from("tags")
+        //     .select(`
+        //         id,
+        //         tag_text,
+        //         cover:images!cover_image_id(image_url)
+        //     `)
+            
         const { data } = await supabase
             .from("tag_albums")
             .select("*")
